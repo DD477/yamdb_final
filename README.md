@@ -1,3 +1,4 @@
+![workflow](https://github.com/DD477/yamdb_final/actions/workflows/yamdb_workflow.yaml/badge.svg)
 
 <a name=top></a>
 <div align="center">
