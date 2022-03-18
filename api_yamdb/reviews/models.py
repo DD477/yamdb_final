@@ -2,7 +2,6 @@ import textwrap as tw
 
 from django.contrib.auth import get_user_model
 from django.db import models
-
 from reviews.validators import score_validator, year_validator
 
 CustomUser = get_user_model()

@@ -1,3 +1,11 @@
+import api.filters as custom_filters
+from api.permissions import (IsAdmin, IsAdminOrReadOnly,
+                             IsAuthorOrModeratorOrAdminOrReadOnly)
+from api.serializers import (CategorySerializer, CommentSerializer,
+                             ConfirmationCodeSerializer, CreateUserSerializer,
+                             GenreSerializer, ReviewSerializer,
+                             TitleReadSerializer, TitleWriteSerializer,
+                             UserSerializer)
 from django.contrib.auth.tokens import default_token_generator
 from django.core.mail import send_mail
 from django.db.models import Avg
@@ -10,18 +18,10 @@ from rest_framework.permissions import (SAFE_METHODS, IsAuthenticated,
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework_simplejwt.tokens import AccessToken
-
-import api.filters as custom_filters
-from api.permissions import (IsAdmin, IsAdminOrReadOnly,
-                             IsAuthorOrModeratorOrAdminOrReadOnly)
-from api.serializers import (CategorySerializer, CommentSerializer,
-                             ConfirmationCodeSerializer, CreateUserSerializer,
-                             GenreSerializer, ReviewSerializer,
-                             TitleReadSerializer, TitleWriteSerializer,
-                             UserSerializer)
-from api_yamdb.settings import DEFAULT_FROM_EMAIL
 from reviews.models import Category, Genre, Review, Title
 from users.models import CustomUser
+
+from api_yamdb.settings import DEFAULT_FROM_EMAIL
 
 
 class CreateUserView(APIView):
