@@ -6,7 +6,7 @@ services:
     volumes:
       - /var/lib/postgresql/data/
     env_file:
-      - ../.env
+      - ./.env
   web:
     image: 481516234242/api_yamdb:03.2022
     restart: always
