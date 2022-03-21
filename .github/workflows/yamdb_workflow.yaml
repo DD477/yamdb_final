@@ -4,8 +4,9 @@ on: push
 jobs:
   tests:
     runs-on: ubuntu-latest
-    matrix:
-      python-version: ["3.7", "3.8", "3.9"]
+    strategy:
+      matrix:
+        python-version: ["3.7", "3.8", "3.9"]
     steps:
     - uses: actions/checkout@v2
     - name: Set up Python ${{ matrix.pyrhon-version }}
@@ -21,9 +22,8 @@ jobs:
         python -m flake8
         pytest
         
-on: push: branches: [ master ]
-jobs:
   build_and_push_to_docker_hub:
+    if: github.branch == 'master'
     name: Push Docker image to Docker Hub
     runs-on: ubuntu-latest
     needs: tests
@@ -43,8 +43,9 @@ jobs:
           context: api_yamdb/
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/api_yamdb:03.2022
-          
+
   deploy:
+    if: github.branch == 'master'
     runs-on: ubuntu-latest
     needs: build_and_push_to_docker_hub
     steps:
