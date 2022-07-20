@@ -77,11 +77,11 @@
    ```
 - Обновить менеджер пакетов (pip)
    ```sh
-   pip3 install --upgrade pip
+   pip install --upgrade pip
    ```
 - Установить зависимости из файла requirements.txt
    ```sh
-   pip3 install -r requirements.txt
+   pip install -r requirements.txt
    ```
    
 ### Запуск docker-контейнера:
