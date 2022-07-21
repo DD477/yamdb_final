@@ -43,7 +43,8 @@ jobs:
           context: api_yamdb/
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/api_yamdb:03.2022
-
+          
+  # Настройки для деплоя на сервер
   # deploy:
   #   runs-on: ubuntu-latest
   #   needs: build_and_push_to_docker_hub
@@ -68,6 +69,7 @@ jobs:
   #           sudo docker-compose up -d
   send_message:
     runs-on: ubuntu-latest
+    # Настройки для деплоя на сервер
     # needs: deploy
     needs: build_and_push_to_docker_hub
     steps:
