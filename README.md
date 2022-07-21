@@ -51,7 +51,6 @@
 [К оглавлению](#оглавление) ↑
 
 ## Необходимый софт
-Для развертывания проекта локально требуется Python версии 3.8.10 или выше.
 - [Python](https://www.python.org/) 3.8.10 или выше
 - [PostgreSQL](https://www.postgresql.org/) 13
 - [Docker](https://www.docker.com/) 4.10.1
@@ -113,16 +112,14 @@ sudo docker-compose exec web python3 manage.py createsuperuser
 ```sh
 docker-compose exec web python manage.py collectstatic --no-input 
 ```
-- Запустятся контейнеры, сайт будет доступен по адресу http://localhost/
-- Спецификация API будет доступна http://localhost/redoc/
-   
-[К оглавлению](#оглавление) ↑
-
 ### Тестовые базы данных
-В репозитории, в директории /api_yamdb/static/data, подготовлены несколько файлов в формате csv с контентом для ресурсов Users, Titles, Categories, Genres, Review и Comments. Вы можете заполнить базу данных контентом из приложенных csv-файлов. Для этого необходимо выполнить команду:
+В репозитории, в директории /api_yamdb/static/data, подготовлены несколько файлов в формате .csv с контентом для ресурсов Users, Titles, Categories, Genres, Review и Comments. Вы можете заполнить базу данных контентом из приложенных csv-файлов. Для этого необходимо выполнить команду:
    ```sh
    docker-compose exec web python3 manage.py import_csv
    ```
+- После запуска контейнеров, сайт будет доступен по адресу http://localhost/
+- У проекта нет интерфейса, так что можно пользоватья любом удобный инструментом для работы с API
+- Спецификация API будет доступна http://localhost/redoc/
    
 [К оглавлению](#оглавление) ↑
 
